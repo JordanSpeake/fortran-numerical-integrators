@@ -1,15 +1,18 @@
-# Variables
 FC = gfortran
-FFLAGS = -Wall -Wextra -Wpedantic -Werror
-TARGET = program.out
-SRC = main.f90
+FFLAGS = -Wall -Wextra -Wpedantic -Werror -Iobj -Jobj
+TARGET = bin/program
+OBJS = obj/integrators.o obj/main.o
 
-# Default rule
-all: $(TARGET)
+all: setup $(TARGET)
 
-$(TARGET): $(SRC)
-	$(FC) $(FFLAGS) -o $(TARGET) $(SRC)
+setup:
+	mkdir -p obj bin
 
-# Cleanup rule
+$(TARGET): $(OBJS)
+	$(FC) $(FFLAGS) -o $(TARGET) $(OBJS)
+
+obj/%.o: src/%.f90
+	$(FC) $(FFLAGS) -c $< -o $@
+
 clean:
-	rm -f $(TARGET)
+	rm -rf obj bin
