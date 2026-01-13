@@ -7,9 +7,9 @@ program rk4
     real(dp) :: t_init, t_end, y_init, h
     real(dp), allocatable :: y_values(:), t_values(:)
     t_init = 0
-    y_init = 1
-    t_end = 1
-    h = 0.001
+    y_init = -1
+    t_end = 8 * atan(1.0) ! 2*pi
+    h = 0.0001
     steps = int((t_end - t_init)/h)
     allocate(y_values(steps+1))
     y_values(1) = y_init
@@ -36,19 +36,19 @@ program rk4
         ! This defines the function to be integrated
         real(dp), intent(in) :: t, y
         real(dp) :: out
-        out = -y*t
+
+        out = sin(t) + (0 * y)
     end function
 
     pure function rk_step(y0, t0, h) result(y1)
         implicit none
         real(dp), intent(in) :: y0, t0, h
-        real(dp) :: k1, k2, k3, k4, t1, y1
-        t1 = t0
-        k1 = func(t0,       y0         )
-        k2 = func(t0 + h/2, y0 + h*k1/2)
-        k3 = func(t0 + h/2, y0 + h*k2/2)
-        k4 = func(t0 + h,   y0 + h*k3  )
-        y1 = y0 + h * (k1 + k2/2 + k3/2 + k4) / 6
+        real(dp) :: k1, k2, k3, k4, y1
+        k1 = func(t0,         y0           )
+        k2 = func(t0 + h/3,   y0 + h*k1/3  )
+        k3 = func(t0 + 2*h/3, y0 + h*2*k2/3)
+        k4 = func(t0 + h,     y0 + h*k3    )
+        y1 = y0 + h * (k1 + 3*k2 + 3*k3 + k4) / 8
     end function
 
 end program

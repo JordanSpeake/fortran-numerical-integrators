@@ -1,7 +1,11 @@
 [project]
 name = "fortran-numerical"
 version = "0.1.0"
-description = "Add your description here"
+description = "Visualisation of the results produced by the fortran program"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "matplotlib>=3.10.8",
+    "numpy>=2.4.1",
+    "pandas>=2.3.3",
+]
