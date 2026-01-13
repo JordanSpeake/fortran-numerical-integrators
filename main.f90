@@ -11,9 +11,9 @@ program rk4
     t_end = 1
     h = 0.001
     steps = int((t_end - t_init)/h)
-    allocate(y_values(steps))
+    allocate(y_values(steps+1))
     y_values(1) = y_init
-    allocate(t_values(steps))
+    allocate(t_values(steps+1))
     t_values(1) = t_init
 
     ! Do the integration
