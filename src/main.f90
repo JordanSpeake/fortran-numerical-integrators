@@ -12,7 +12,7 @@ program rk4
     dt = 0.0001
     steps = int((t_end - t)/dt)
 
-    open(newunit=unit_csv, file="../analysis/data.csv", status="replace")
+    open(newunit=unit_csv, file="analysis/data.csv", status="replace")
     write(unit_csv, '(A)') "t, rk4 (explicit)"
     do i = 1, steps
         write(unit_csv, '(g0, ",", g0)') t, y
@@ -23,21 +23,9 @@ program rk4
     contains
 
     pure function func(t, y) result(out)
-        ! This defines the function to be integrated
         real(8), intent(in) :: t, y
         real(8) :: out
         out = sin(t) + (0 * y)
     end function
-
-    ! pure function rk_step(y0, t0, h) result(y1)
-    !     implicit none
-    !     real(8), intent(in) :: y0, t0, h
-    !     real(8) :: k1, k2, k3, k4, y1
-    !     k1 = func(t0,         y0           )
-    !     k2 = func(t0 + h/3,   y0 + h*k1/3  )
-    !     k3 = func(t0 + 2*h/3, y0 + h*2*k2/3)
-    !     k4 = func(t0 + h,     y0 + h*k3    )
-    !     y1 = y0 + h * (k1 + 3*k2 + 3*k3 + k4) / 8
-    ! end function
 
 end program
