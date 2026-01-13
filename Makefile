@@ -1,7 +1,7 @@
 # Variables
 FC = gfortran
 FFLAGS = -Wall -Wextra -Wpedantic -Werror
-TARGET = out
+TARGET = program.out
 SRC = main.f90
 
 # Default rule
