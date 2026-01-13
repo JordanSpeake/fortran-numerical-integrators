@@ -1,0 +1,4 @@
+# Ignore executables and generated data files
+*.out
+*.csv
+
