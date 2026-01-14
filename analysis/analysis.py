@@ -4,7 +4,7 @@ import pandas as pd
 
 
 def main():
-    data = pd.read_csv("out.csv")
+    data = pd.read_csv("./analysis/data.csv")
     t = data.values[:, 0]
     y = data.values[:, 1]
     plt.plot(t, y, label="RK4")

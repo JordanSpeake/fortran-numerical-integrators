@@ -1,0 +1,4 @@
+To Do List:
+ * Top level script that runs and builds everything, where there are separate directories for python and fortran source code, generated .csv files, and pyplot images.
+ * Implement other ODEs to test my solvers on
+ * Other solvers like backwards Euler, etc.

@@ -1,5 +1,6 @@
 program rk4
     use integrators, only: rk4_step
+    use odes, only: sin_diffeq
     implicit none
 
     ! Setup
@@ -9,23 +10,17 @@ program rk4
     t = 0
     y = -1
     t_end = 8 * atan(1.0) ! 2*pi
-    dt = 0.0001
+    dt = 0.1
     steps = int((t_end - t)/dt)
 
     open(newunit=unit_csv, file="analysis/data.csv", status="replace")
     write(unit_csv, '(A)') "t, rk4 (explicit)"
     do i = 1, steps
         write(unit_csv, '(g0, ",", g0)') t, y
-        call rk4_step(y, t, dt, func)
+        call rk4_step(y, t, dt, sin_diffeq)
         t = t + dt
     end do
 
     contains
-
-    pure function func(t, y) result(out)
-        real(8), intent(in) :: t, y
-        real(8) :: out
-        out = sin(t) + (0 * y)
-    end function
 
 end program
