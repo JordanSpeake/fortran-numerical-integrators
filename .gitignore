@@ -2,3 +2,10 @@
 *.out
 *.csv
 
+# Directories produced by compilation
+bin/
+obj/
+
+
+
+
