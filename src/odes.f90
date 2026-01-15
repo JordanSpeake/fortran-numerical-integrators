@@ -11,22 +11,21 @@ module odes
 
     contains
 
-    pure function sin_diffeq(t, y) result(out)
-        real(8), intent(in) :: t, y
-        real(8) :: out
-        out = sin(t) + (0 * y)
+    pure function exponential_decay(t, y) result(dy)
+        real(8), intent(in) :: t
+        real(8), intent(in) :: y(:)
+        real(8) :: dy(size(y))
+        associate(u => t); end associate
+        dy(1) = -y(1)
     end function
 
-    pure function exponential_decay(t, y) result(out)
-        real(8), intent(in) :: t, y
-        real(8) :: out
-        out = -y + (t * 0)
-    end function
-
-    pure function decaying_harmonic_oscillator(t, y) result(out)
-        real(8), intent(in) :: t, y
-        real(8) :: out
-
+    pure function decaying_harmonic_oscillator(t, y) result(dy)
+        real(8), intent(in) :: t
+        real(8), intent(in) :: y(:)
+        real(8) :: dy(size(y))
+        associate(u => t); end associate
+        dy(1) = y(2)
+        dy(2) = -y(1)
 
 end function
 

@@ -8,10 +8,10 @@ module integrators
     contains
 
     pure subroutine rk4_explicit_38_step(y, t, dt, f)
-        real(8), intent(inout) :: y
+        real(8), intent(inout) :: y(:)
         real(8), intent(in) :: t, dt
         procedure(ode_func) :: f
-        real(8) :: k1, k2, k3, k4
+        real(8) :: k1(size(y)), k2(size(y)), k3(size(y)), k4(size(y))
 
         k1 = f(t,          y            )
         k2 = f(t + dt/3,   y + dt*k1/3  )
@@ -22,10 +22,10 @@ module integrators
     end subroutine rk4_explicit_38_step
 
     pure subroutine rk4_explicit_standard_step(y, t, dt, f)
-        real(8), intent(inout) :: y
+        real(8), intent(inout) :: y(:)
         real(8), intent(in) :: t, dt
         procedure(ode_func) :: f
-        real(8) :: k1, k2, k3, k4
+        real(8) :: k1(size(y)), k2(size(y)), k3(size(y)), k4(size(y))
 
         k1 = f(t,        y          )
         k2 = f(t + dt/2, y + dt*k1/2)
