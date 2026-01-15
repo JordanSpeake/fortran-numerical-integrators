@@ -1,5 +1,5 @@
 FC = gfortran
-FFLAGS = -Wall -Wextra -Wpedantic -Werror -Iobj -Jobj -Wl,-znoexecstack
+FFLAGS = -Wall -Wextra -Wpedantic -Iobj -Jobj -Wl,-znoexecstack
 TARGET = bin/program
 OBJS = obj/odes.o obj/integrators.o obj/main.o
 

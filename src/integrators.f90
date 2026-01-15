@@ -3,11 +3,12 @@ module integrators
     implicit none
     private
 
-    public :: rk4_explicit_38_step, rk4_explicit_standard_step
+    public :: rk4_explicit_38_step, rk4_explicit_standard_step, backward_euler_fpi
 
     contains
 
     pure subroutine rk4_explicit_38_step(y, t, dt, f)
+    ! Runge-Kutta 4th order using alternative (1/8) weights, a bit better than the standard
         real(8), intent(inout) :: y(:)
         real(8), intent(in) :: t, dt
         procedure(ode_func) :: f
@@ -22,6 +23,7 @@ module integrators
     end subroutine rk4_explicit_38_step
 
     pure subroutine rk4_explicit_standard_step(y, t, dt, f)
+    ! Runge-Kutta 4th order using standard (1/6) weights
         real(8), intent(inout) :: y(:)
         real(8), intent(in) :: t, dt
         procedure(ode_func) :: f
@@ -33,5 +35,25 @@ module integrators
         k4 = f(t + dt,   y + dt*k3  )
         y = y + dt * (k1 + 2*k2 + 2*k3 + k4) / 6
     end subroutine rk4_explicit_standard_step
+
+    pure subroutine backward_euler_fpi(y, t, dt, f)
+        ! Backwards Euler using Fixed Point Iteration
+        real(8), intent(inout) :: y(:)
+        real(8), intent(in) :: t, dt
+        procedure(ode_func) :: f
+        real(8) :: y_in(size(y)), y_prev(size(y))
+        integer :: i
+
+        y_in = y
+        y_prev = y
+
+        do i = 1, 50
+            y = y_in + dt*f(t+dt, y_prev)
+            if (minval(abs(y - y_prev)) < 0.0001) exit
+            y_prev = y
+        end do
+
+
+    end subroutine backward_euler_fpi
 
 end module integrators
