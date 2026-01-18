@@ -1,3 +1,0 @@
-/home/user/Documents/cdt/fortran-numerical-integrators/build/CMakeFiles/program.dir
-/home/user/Documents/cdt/fortran-numerical-integrators/build/CMakeFiles/edit_cache.dir
-/home/user/Documents/cdt/fortran-numerical-integrators/build/CMakeFiles/rebuild_cache.dir

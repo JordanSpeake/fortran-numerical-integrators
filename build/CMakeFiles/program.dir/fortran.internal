@@ -1,5 +1,0 @@
-# The fortran modules provided by this target.
-provides
- integrators_mod.mod
- models_mod.mod
- odes_mod.mod
