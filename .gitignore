@@ -3,7 +3,6 @@
 *.csv
 
 # Directories produced by compilation
-bin/
-obj/
+build/
 figures/
 
