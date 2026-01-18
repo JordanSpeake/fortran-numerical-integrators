@@ -1,7 +1,7 @@
 FC = gfortran
 FFLAGS = -Wall -Wextra -Wpedantic -Iobj -Jobj -Wl,-znoexecstack
 TARGET = bin/program
-OBJS = obj/odes.o obj/integrators.o obj/main.o
+OBJS = obj/models.o obj/odes.o obj/integrators.o obj/main.o
 
 all: setup $(TARGET)
 

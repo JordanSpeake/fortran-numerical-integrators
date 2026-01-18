@@ -19,23 +19,19 @@ def phase_space(data):
 
 def plot_solution(data):
     t = data.values[:, 0]
-    y_alt = data.values[:, 1]
-    y_be = data.values[:, 3]
-    t_interp = np.linspace(0, np.max(t), 1000)
-    plt.plot(t, y_alt, label="RK4 (1/8, Explicit)")
-    plt.plot(t, y_be, label="Backwards Euler")
-    plt.plot(t_interp, np.sin(t_interp), ls="dashed", label="Analytic")
-    plt.legend(title="Method")
-    plt.xlabel("Timme")
+    x = data.values[:, 1]
+    v = data.values[:, 2]
+    plt.plot(t, x)
+    plt.xlabel("Time")
     plt.ylabel("Velocity")
-    plt.tight_layout()
+    # plt.show()
     plt.savefig("figures/Solution.png")
 
 
 def main():
     data = pd.read_csv("./analysis/data.csv")
     plot_solution(data)
-    phase_space(data)
+    # phase_space(data)
 
 
 if __name__ == "__main__":
