@@ -1,4 +1,0 @@
-To Do List:
-* Implement implicit Runge-Kutta 4 with newton-raphson (alegedly modified?) for root finding, but first just use fixed-point iteration (cause it's already there)
-* Write the README.md goddamnit!
-
