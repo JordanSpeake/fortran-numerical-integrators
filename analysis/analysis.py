@@ -19,12 +19,13 @@ def phase_space(data):
 
 def plot_solution(data):
     t = data.values[:, 0]
-    x = data.values[:, 1]
-    v = data.values[:, 2]
-    plt.plot(t, x)
+    pred = data.values[:, 1]
+    prey = data.values[:, 2]
+    plt.plot(t, pred)
+    plt.plot(t, prey)
     plt.xlabel("Time")
-    plt.ylabel("Velocity")
-    # plt.show()
+    plt.ylabel("Population")
+    plt.show()
     plt.savefig("figures/Solution.png")
 
 
