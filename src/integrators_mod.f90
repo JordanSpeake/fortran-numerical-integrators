@@ -40,4 +40,6 @@ module integrators_mod
         end do
     end subroutine backward_euler_step
 
+    ! pure subroutine
+
 end module integrators_mod
