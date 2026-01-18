@@ -1,5 +1,5 @@
 module integrators_mod
-    use models, only: ode_model
+    use models_mod, only: ode_model
     implicit none
     private
 

@@ -1,5 +1,5 @@
 module odes_mod
-    use models, only : ode_model
+    use models_mod, only : ode_model
     implicit none
 
     type, extends(ode_model) :: damped_harmonic_oscillator
