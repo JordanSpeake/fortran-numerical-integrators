@@ -1,4 +1,4 @@
-module models
+module models_mod
     implicit none
     private
     public :: ode_model
@@ -16,4 +16,4 @@ module models
             real(8) :: dy(size(y))
         end function ode_interface
     end interface
-end module models
+end module models_mod

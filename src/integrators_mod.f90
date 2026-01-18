@@ -1,4 +1,4 @@
-module integrators
+module integrators_mod
     use models, only: ode_model
     implicit none
     private
@@ -40,4 +40,4 @@ module integrators
         end do
     end subroutine backward_euler_step
 
-end module integrators
+end module integrators_mod
