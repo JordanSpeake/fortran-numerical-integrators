@@ -1,4 +1,4 @@
-module odes_mod
+module damped_harmonic_oscillator_mod
     use models_mod, only : ode_model
     implicit none
 
@@ -20,4 +20,4 @@ module odes_mod
         dy(2) = -(2*this%zeta*this%omega_0*y(2) + this%omega_0 * y(1))
 
     end function dho_func
-end module odes_mod
+end module damped_harmonic_oscillator_mod
