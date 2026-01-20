@@ -31,8 +31,8 @@ def plot_solution(data, figures_directory):
 
 
 def main():
-    figures_directory = "../figures/"
-    data_path = "../analysis/data.csv"
+    figures_directory = "figures/"
+    data_path = "analysis/data.csv"
     print("Plotting figures... ", end="", flush=True)
     data = pd.read_csv(data_path)
     plot_solution(data, figures_directory)

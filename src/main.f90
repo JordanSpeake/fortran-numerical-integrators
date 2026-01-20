@@ -19,7 +19,7 @@ program rk4
 
     ! Run the solver:
     write(*, fmt="(a)", advance="no") "Running solver..."
-    open(newunit=unit_csv, file="../analysis/data.csv", status="replace")
+    open(newunit=unit_csv, file="analysis/data.csv", status="replace")
     write(unit_csv, '(A)') "t, y(0), y(1)"
     do i = 1, steps
         write(unit_csv, '(g0, ",", g0, ",", g0)') t, y(1), y(2)
