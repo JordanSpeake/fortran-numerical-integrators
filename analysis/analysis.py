@@ -21,13 +21,13 @@ def plot_solution(data, figures_directory):
     t = data.values[:, 0]
     x = data.values[:, 1]
     v = data.values[:, 2]
-    plt.plot(t, x, label="Position", color="black")
-    plt.plot(t, v, label="Acceleration", ls="dashed", color="black", alpha=0.6)
+    plt.scatter(t, x, s=0.4)
+    plt.scatter(t, v, alpha=0.6, s=0.4)
     plt.xlabel("Time")
     plt.ylabel("Value")
-    plt.legend()
+    # plt.legend()
     plt.tight_layout()
-    plt.savefig(f"{figures_directory}solution.png")
+    plt.savefig(f"{figures_directory}solution.png", dpi=600)
 
 
 def main():

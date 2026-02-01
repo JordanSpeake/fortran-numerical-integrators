@@ -14,7 +14,7 @@ program rk4
     t = 0
     y = [0.0, 1.0]
     t_end = 20
-    tol = 1e-9
+    tol = 1e-6
     dt = 0.1 ! Starting value for tol
     i = 1
     step = 0
