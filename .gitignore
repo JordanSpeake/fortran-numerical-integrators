@@ -6,3 +6,6 @@
 build/
 figures/
 
+# Other
+.vscode/
+
